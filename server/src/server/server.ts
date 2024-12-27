@@ -52,10 +52,10 @@ const config = loadConfig(configFile)
 
 console.log(config)
 
-var agent = new Agent(config.janus.url)
-agent.init()
+// var agent = new Agent(config.janus.url)
+// agent.init()
 
-var control = new Control(config, agent)
+var control = new Control(config)
 control.init()
 control.start()
 

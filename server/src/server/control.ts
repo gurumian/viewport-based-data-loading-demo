@@ -63,7 +63,7 @@ export class Control {
   private model_files?: string[]
   stopped: boolean = false;
   private userNotification?: UserNotification
-  constructor(config: {port: number, rootdir: string}, private agent: Agent) {
+  constructor(config: {port: number, rootdir: string}, private agent?: Agent) {
     if (config.hasOwnProperty('port')) {
       this.port = config['port']
     }
@@ -118,45 +118,45 @@ export class Control {
     //   console.log(`sessions: ${id}:${name} has been created successfully`)
     // })
 
-    app.delete('/room', async (req: { body: any; }, res: { json: (arg0: { result: string; room: any; reason?: string; }) => void; }) => {
-      console.log('request to destroy a room!');
-      console.log(`for ${req.body.room}`);
-      await this.agent?.destroyRoom(req.body.room);
-      res.json({
-        result: 'ok',
-        room: req.body.room
-      });
-    })
+    // app.delete('/room', async (req: { body: any; }, res: { json: (arg0: { result: string; room: any; reason?: string; }) => void; }) => {
+    //   console.log('request to destroy a room!');
+    //   console.log(`for ${req.body.room}`);
+    //   await this.agent?.destroyRoom(req.body.room);
+    //   res.json({
+    //     result: 'ok',
+    //     room: req.body.room
+    //   });
+    // })
 
-    app.post('/room', async (req: { body: any; }, res: { json: (arg0: { result: string; room: any; reason?: string; }) => void; }) => {
-      console.log('request to create a room!');
-      console.log(`for ${req.body.users}`);
-      if(req.body.users.length < 2) {
-        res.json({
-          result: 'nok',
-          reason: 'not enough users',
-          room: null
-        })
-        return;
-      }
+    // app.post('/room', async (req: { body: any; }, res: { json: (arg0: { result: string; room: any; reason?: string; }) => void; }) => {
+    //   console.log('request to create a room!');
+    //   console.log(`for ${req.body.users}`);
+    //   if(req.body.users.length < 2) {
+    //     res.json({
+    //       result: 'nok',
+    //       reason: 'not enough users',
+    //       room: null
+    //     })
+    //     return;
+    //   }
       
-      try {
-        let data = await this.agent?.createRoom();
-        this.userNotification?.talk(req.body.users, data.room);
-        res.json({
-          result: 'ok',
-          room: data.room
-        })
-      }
-      catch(e) {
-        console.log(e);
-        res.json({
-          result: 'nok',
-          reason: 'failed to create a room',
-          room: null
-        })
-      }
-    })
+    //   try {
+    //     let data = await this.agent?.createRoom();
+    //     this.userNotification?.talk(req.body.users, data.room);
+    //     res.json({
+    //       result: 'ok',
+    //       room: data.room
+    //     })
+    //   }
+    //   catch(e) {
+    //     console.log(e);
+    //     res.json({
+    //       result: 'nok',
+    //       reason: 'failed to create a room',
+    //       room: null
+    //     })
+    //   }
+    // })
 
     app.get('/api/books', (req: { query: any; }, res: { json: (arg0: { books: any; currentPage: any; totalPages: any; totalBooks: any; }) => void; }) => {
       console.log(`request to get books! ${req.query.page} ${req.query.limit}`);
