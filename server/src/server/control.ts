@@ -32,12 +32,20 @@ const cheerio = require('cheerio');
 import { Agent } from './agent/agent'
 import { UserNotification } from './user_notification'
 import { mkdir, getFiles } from './utils/sys'
+import { genMockBooks } from './gen_mock'
 // const copyfiles = require('copyfiles')
 // import { Room } from './room';
 
 // const service_name: string = 'camera-manager.service'
 
 // TODO: inotify /media
+
+if(!fs.existsSync('./mock_books.json')) {
+  genMockBooks();
+}
+
+const mockBooks = require('./mock_books.json');
+console.log(mockBooks);
 
 const app = express()
 app.use(cors())
@@ -149,6 +157,23 @@ export class Control {
         })
       }
     })
+
+    app.get('/api/books', (req: { query: any; }, res: { json: (arg0: { books: any; currentPage: any; totalPages: any; totalBooks: any; }) => void; }) => {
+      console.log(`request to get books! ${req.query.page} ${req.query.limit}`);
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
+    
+      const paginatedBooks = mockBooks.slice(startIndex, endIndex);
+    
+      res.json({
+        books: paginatedBooks,
+        currentPage: page,
+        totalPages: Math.ceil(mockBooks.length / limit),
+        totalBooks: mockBooks.length
+      });
+    });
 
     app.get('/numofusers', (_: { body: any; }, res: { json: (arg0: { result: string; numofusers: any; }) => void; }) => {
       console.log(`numofusers ${this.userNotification?.numofusers}`);
