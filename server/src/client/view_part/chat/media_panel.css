@@ -1,0 +1,80 @@
+.media-panel {
+  position: fixed;
+  bottom: -200px; /* Start off-screen */
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: bottom 0.3s ease-out;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.media-panel.open {
+  bottom: 0; /* Slide up to be fully visible */
+}
+
+.media-panel-content {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.media-option {
+  background-color: lightgray; /* Default background color */
+  color: black; /* Default text color */
+  border: none;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  font-family: 'Jura', sans-serif;
+}
+
+.media-option:hover {
+  background-color: gray; /* Hover effect */
+}
+
+.media-option.active {
+  background-color: darkred; /* Active state background color */
+  color: white; /* Active state text color */
+}
+
+.media-option.enabled {
+    background-color: darkred; /* Green background for enabled state */
+    color: white;
+  }
+
+  .media-option.enabled img {
+    /* This filter will make the SVG appear white */
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+  }
+
+/* .close-button {
+  background-color: lightgray;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+} */
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+.toggle-label {
+  font-weight: bold;
+  margin-right: 10px;
+}

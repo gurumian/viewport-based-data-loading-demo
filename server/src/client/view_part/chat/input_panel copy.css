@@ -1,0 +1,289 @@
+svg {
+  width: 25px;
+  height: 25px; /* Added for consistency */
+}
+
+.chat-app {
+  min-height: 100vh;
+  /* max-width: 600px; */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  /* padding: 0rem; */
+  background-color: var(--app-bg);
+  transition: background 0.5s;
+}
+
+.chat-app .chat-interface {
+  margin-top: auto;
+  background-color: var(--chat-interface-bg);
+  /* padding: 0.5rem; */
+  /* padding: 5.0rem; */
+  /* margin-bottom: 5.0rem; */
+  border-radius: 0.33rem;
+  transition: background 0.5s;
+}
+
+.chat-app .chat-interface .utilities {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; /* Added for vertical alignment */
+}
+
+.chat-app .chat-interface .utilities ul {
+  display: flex;
+  background-color: var(--icon-bg);
+  border-radius: 25px;
+  padding: 0 0.25rem;
+  margin-right: 1rem;
+  transition: background 0.5s;
+}
+
+.chat-app .chat-interface .utilities ul:last-child {
+  margin-left: auto;
+  margin-right: 0;
+  padding: 0;
+}
+
+.chat-app .chat-interface .utilities ul li {
+  height: 35px;
+  width: 35px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-app .chat-interface .utilities ul li svg {
+  height: 18px;
+  width: 18px; /* Added for consistency */
+  fill: var(--icon-color);
+  transition: fill 0.5s;
+}
+
+.chat-app .chat-interface .utilities ul li.toggle-switch {
+  width: auto;
+}
+
+.chat-app .chat-interface .utilities ul li.toggle-switch input {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none; /* Added for cross-browser compatibility */
+  width: 50px;
+  height: 30px;
+  border-radius: 25px;
+  background-color: var(--toggle-bg);
+  transition: background 0.3s;
+  cursor: pointer; /* Added for better UX */
+}
+
+.chat-app .chat-interface .utilities ul li.toggle-switch input::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  width: 25px;
+  background-color: var(--toggle-color);
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+
+.chat-app .chat-interface .utilities ul li.toggle-switch input:checked {
+  background-color: var(--accent);
+}
+
+.chat-app .chat-interface .utilities ul li.toggle-switch input:checked::after {
+  left: 65%;
+}
+
+.chat-app .chat-interface .utilities ul li.send-cta {
+  width: 100px;
+  border-radius: 25px;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer; /* Added for better UX */
+}
+
+.chat-app .chat-interface .utilities ul li.send-cta svg {
+  margin-right: 0.5rem;
+  fill: white;
+}
+
+.chat-app .chat-interface input[type="text"] {
+  width: 100%; /* Added for full width */
+  border: none;
+  padding: 1rem;
+  outline: none;
+  background-color: transparent;
+  color: var(--text-color); /* Added for consistency with theme */
+}
+
+
+
+
+/* Container for the entire chat interface */
+.chat-interface {
+  background-color: #f0f0f0; /* Light background */
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 100;
+}
+
+/* Utilities container (top and bottom) */
+.utilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between button groups */
+  z-index: 100;
+}
+
+/* Each button group */
+.utilities ul {
+  display: inline-flex;
+  gap: 8px; /* Space between individual buttons within a group */
+}
+
+/* Styling for each button with rounded corners */
+.rounded-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  border-radius: 10px; /* Slightly rounded corners */
+  background-color: #e0e0e0; /* Light grey background */
+}
+
+/* SVG icons inside the button */
+.rounded-button svg {
+  width: auto; 
+}
+
+/* Hover effect for buttons */
+.rounded-button:hover {
+   background-color: #d0d0d0; /* Slightly darker on hover */
+}
+
+/* Input field styling */
+.reply-input {
+   width: calc(100% - 20px); /* Full width minus padding */
+   padding: 8px;
+   margin-top: 10px;
+   border-radius: 5px;
+   border: none;
+   background-color: #ffffffaf;
+   box-shadow: inset 0px 1px 2px rgba(0,0,0,0.1);
+   font-family: 'Jura', Helvetica, sans-serif;
+}
+
+.reply-input:focus {
+  outline: none;
+}
+
+/* Styling for each button with rounded corners */
+.rounded-button,
+.send-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0; /* Light grey background */
+  border-radius: 10px; /* Rounded corners */
+  padding: 0 12px; /* Add padding to accommodate text */
+}
+
+.send-cta svg {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* Hover effect for buttons */
+.rounded-button:hover,
+.send-cta:hover {
+   background-color: #d0d0d0; /* Slightly darker on hover */
+}
+
+.rounded-button.enabled {
+  background-color: #37e6ab;
+  transform: scale(1.0);
+}
+
+.rounded-button.enabled svg path {
+  fill: white;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* .reply-input {
+  flex-grow: 1;
+  height: 60px;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.4;
+  resize: none;
+  overflow-y: auto;
+  margin-right: 8px; 
+} */
+
+.send-button {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-button:hover {
+  /* background-color: #0056b3; */
+}
+
+.send-button svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px; /* Adjust this value to position the tooltip above the input */
+  transform: translateY(-100%);
+  width: 50%;
+  font-family: 'Jura', Helvetica, sans-serif;
+  font-size: 14px;
+  color: #222121;
+  background-color: #93939673;
+  border: 1px solid #72767d96;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  max-height: 150px;
+  overflow-y: auto;
+
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-item {
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+.tooltip-item:hover {
+  background-color: #93939673;
+}

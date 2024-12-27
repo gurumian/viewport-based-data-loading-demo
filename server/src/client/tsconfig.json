@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                      // Use a modern target for better browser support.
+    "module": "ESNext",                      // Use ESNext module system for native JavaScript module loading.
+    "lib": ["DOM", "ESNext"],                // Include modern JavaScript and DOM API support.
+    "moduleResolution": "bundler",              // Resolve modules in Node.js style.
+    "allowJs": true,                         // Allow JavaScript files to be compiled.
+    "checkJs": false,                        // Disable type-checking of JavaScript files.
+    "jsx": "react",                          // If using JSX (React), you can change to "react-jsx" for React 17+.
+    "strict": true,                          // Enable all strict type-checking options.
+    "esModuleInterop": true,                 // Enable interop between CommonJS and ESModules.
+    "skipLibCheck": true,                    // Skip checking of .d.ts files for faster builds.
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file naming.
+    "noImplicitAny": true,                   // Disallow `any` types unless explicitly declared.
+    "resolveJsonModule": true,               // Allow importing of JSON files.
+    "noUnusedLocals": false,                  // Warn on unused local variables.
+    "noUnusedParameters": true,              // Warn on unused function parameters.
+    "sourceMap": true,                       // Enable source maps for easier debugging.
+    "outDir": "./dist",                      // Output directory for compiled files.
+    "baseUrl": "./",                         // Base URL for resolving non-relative module names.
+    "paths": {
+      "*": ["node_modules/*"]                // Resolve packages from `node_modules`.
+    },
+    "allowSyntheticDefaultImports": true,    // Allow default imports even if the module doesn't have a default export.
+    "isolatedModules": true,                 // Ensure that each file can be safely transpiled without relying on other files.
+    "incremental": true,                     // Enable faster incremental builds.
+    "useDefineForClassFields": true          // Use the latest specification for class fields (recommended for ESNext).
+  },
+  "include": ["**/*.ts", "**/*.tsx"], // Include TypeScript and TSX files.
+  "exclude": ["node_modules", "dist"]         // Exclude `node_modules` and `dist` directories from compilation.
+}
+
+
+// {
+//   "compilerOptions": {
+//     "target": "es2022",
+//     "moduleResolution": "node",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "allowJs": true,
+//   },
+//   "include": [
+//     "**/*.ts"
+//   ]
+// }

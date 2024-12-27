@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <!-- Microphone Icon -->
+  <!-- Longer Microphone Head -->
+  <rect x="96" y="0" width="192" height="384" rx="96" ry="96" fill="#000"/>
+  <!-- Microphone Stem -->
+  <rect x="176" y="384" width="32" height="64" fill="#000"/>
+  <!-- Base Stand -->
+  <path d="M192 448v32" stroke="#000" stroke-width="32" stroke-linecap="round"/>
+  <!-- Base -->
+  <rect x="96" y="480" width="192" height="32" fill="#000"/>
+</svg>

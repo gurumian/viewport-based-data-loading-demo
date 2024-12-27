@@ -1,0 +1,26 @@
+.video-container {
+  position: absolute;
+  width: 30%;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.video-container video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+#local-video-container {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+#remote-video-container {
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}

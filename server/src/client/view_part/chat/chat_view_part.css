@@ -1,0 +1,8 @@
+#dg-container .custom-dg {
+    position: absolute;
+    top: 0;
+    right: 0rem;
+    z-index: 10001; /* Set your desired z-index */
+    /* opacity: 0.9; */
+    isolation: isolate;
+}

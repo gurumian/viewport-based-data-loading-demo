@@ -1,0 +1,64 @@
+name: toktoktalk
+version: '0.0.6'
+summary: service summary
+description: |
+  description
+
+base: core22
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  toktoktalk:
+    plugin: nil
+    source-type: local
+    source: .
+    override-build: |
+      export PATH=./node_modules/.bin:$PATH
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+      nvm install 20.9.0
+      nvm use 20.9.0
+
+      npm i --unsafe-perm
+      npm run build
+      mkdir -p $SNAPCRAFT_PART_INSTALL/lib/node_modules/toktoktalk/dist/
+      cp -R dist/* $SNAPCRAFT_PART_INSTALL/lib/node_modules/toktoktalk/dist/
+      
+      mkdir -p $SNAPCRAFT_PART_INSTALL/bin/
+
+      cp $(which node) $SNAPCRAFT_PART_INSTALL/bin/node
+
+      cp -R node_modules $SNAPCRAFT_PART_INSTALL/lib/node_modules/toktoktalk/
+
+    build-packages:
+      - curl
+
+    prime:
+      - -usr/lib/x86_64-linux-gnu/libicuio.so.70
+      - -usr/lib/x86_64-linux-gnu/libicuio.so.70.1
+      - -usr/lib/x86_64-linux-gnu/libicutest.so.70
+      - -usr/lib/x86_64-linux-gnu/libicutest.so.70.1
+      - -usr/lib/x86_64-linux-gnu/libicutu.so.70
+      - -usr/lib/x86_64-linux-gnu/libicutu.so.70.1
+
+apps:
+  toktoktalk:
+    daemon: simple
+    restart-condition: always
+    start-timeout: 60s
+    command: bin/node $SNAP/lib/node_modules/toktoktalk/dist/server/server.js
+    plugs:
+      - network
+      - network-bind
+
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+
+environment:
+  LD_LIBRARY_PATH: $SNAP/usr/lib/x86_64-linux-gnu:$SNAP/usr/local/lib/:$SNAP/usr/local/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBRARY_PATH
+  DISABLE_WAYLAND: 1
+  PYTHONPATH: $SNAP/usr/lib/python3/dist-packages:$SNAP/usr/lib/python2.7/dist-packages/:$PYTHONPATH

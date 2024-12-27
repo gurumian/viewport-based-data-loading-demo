@@ -1,0 +1,204 @@
+ /* cyrillic-ext */
+ @font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* greek-ext */
+@font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+1F00-1FFF;
+}
+
+/* greek */
+@font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+0370-03FF;
+}
+
+/* vietnamese */
+@font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+	font-family: 'Jura';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Jura Regular'), local('Jura-Regular'), url(../fonts/Jura-Regular.ttf) format('truetype');
+	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+	display: none;
+}
+
+html,
+body {
+	height: 100%;
+	font-family: 'Jura', Helvetica, sans-serif;
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+
+}
+
+body {
+	background-color: rgba(255, 255, 255, 1.0);
+	margin: 0;
+	overflow: hidden;
+}
+
+#root {
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.0);
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+#container {
+	background-color: rgba(255, 255, 255, 0.0);
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	width: 480px;
+	height: 480px;
+	z-index: 0;
+}
+
+#content {
+	position: relative;
+	background-color: rgba(255, 255, 255, 1.0);
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+
+#default-view-container {
+	position: fixed;
+	/* top: 0; */
+	/* left: 0; */
+	/* right: 0; */
+	/* bottom: 120px; Adjust based on your input area height */
+	width: 100%;
+	height: 100%;
+	/* height: var(--viewport-height, 85vh); */
+	overflow-y: auto;
+	background-color: #f0f0f02c;
+	padding-bottom: 20px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+	z-index: 3;
+	/* display: flex; */
+	flex-direction: column;
+	/* opacity: 0.5; */
+	background-color: rgba(255, 255, 255, 0.0);
+}
+
+#overlay {
+	position: fixed;
+	top: 30%;
+	width: 100%;
+	height: 30%;
+	background-color: rgba(255, 255, 255, 0.8);
+	z-index: 9999;
+	display: none;
+}
+
+#overlay-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #000;
+}
+
+#info {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 500px;
+	height: 30px;
+	background-color: rgba(255, 255, 255, 0.8);
+	z-index: 9999;
+	display: none;
+}
+
+#info-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #000;
+}
+
+#local-video-container {
+    position: absolute;
+    top: 10px;  /* Adjust as needed */
+    right: 10px;   /* Adjust as needed */
+    width: 30%;  /* Set your desired width */
+    height: auto; /* Set your desired height */
+    object-fit: cover; /* This will crop the video to fit the dimensions */
+    z-index: 1;
+}
+
+#remote-video-container {
+    position: absolute;
+    top: 10px;     /* Adjust as needed */
+    left: 10px;    /* Adjust as needed */
+    width: 30%;  /* Set your desired width */
+    height: auto; /* Set your desired height */
+    object-fit: cover; /* This will crop the video to fit the dimensions */
+    z-index: 1;
+}
+
+.video-container {
+	border-radius: 20px; /* Adjust this value to change the roundness */
+	overflow: hidden; /* This ensures the video doesn't spill outside the rounded corners */
+    z-index: 1;
+}
+  
+.video-container video {
+	display: block; /* Removes bottom margin/whitespace */
+	width: 100%; /* Makes the video responsive */
+	height: auto;
+}

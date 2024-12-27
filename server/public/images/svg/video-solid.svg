@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+  <!-- Larger Camera Body -->
+  <rect x="32" y="64" width="384" height="384" rx="48" ry="48" fill="#000"/>
+  <!-- Adjusted Camera Lens Protrusion -->
+  <polygon points="416,160 544,96 544,416 416,352" fill="#000"/>
+</svg>

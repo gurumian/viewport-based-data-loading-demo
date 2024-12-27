@@ -1,0 +1,71 @@
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* Adjust spacing between label text and checkbox */
+}
+
+.label-text {
+    /* Style for the label text */
+    font-family: 'Jura';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.cb-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.cb-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.cb-slider {
+    background-color: darkred;
+    /* Color when checked */
+}
+
+input:checked+.cb-slider:before {
+    transform: translateX(26px);
+}
+
+.cb-slider.round {
+    border-radius: 34px;
+    /* Rounded corners for the switch */
+}
+
+.cb-slider.round:before {
+    border-radius: 50%;
+    /* Rounded knob */
+}

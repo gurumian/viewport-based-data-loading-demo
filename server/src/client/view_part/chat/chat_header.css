@@ -1,0 +1,51 @@
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    z-index: 5;
+}
+
+.back-button {
+    /* padding: 15px 30px; */
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: darkred;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    font-family: "Jura", Helvetica, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.5;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+    opacity: 1;
+}
+
+.back-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:focus {
+    outline: none;
+}
+
+.user-info {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: auto;
+    text-align: right;
+    opacity: 0.5;
+    font-size: 12px;
+    font-family: "Jura", Helvetica, sans-serif;
+}

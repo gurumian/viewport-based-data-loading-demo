@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- This is for mobile app 
+see also) interface.ts 
+-->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="RandomChat connects you with people around the globe for exciting conversations. Make new friends, practice languages, or just have fun chatting!">
+  <meta name="keywords" content="random chat, online chatting, stranger chat, global connections, 랜덤 채팅, 온라인 채팅, 낯선 사람과의 대화, 글로벌 연결">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" type="text/css" href="css/sub.css">
+  <title>RandomChat - Connect with Strangers Worldwide</title>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0px;
+    }
+  </style>
+</head>
+
+<body data-page="sub">
+  <script type="module" src="bundle.js"></script>
+  <div id="container"></div>
+  <div id="video-local-container">
+    <video id="video-local" autoplay playsinline></video>
+  </div>
+  <div id="video-remote-container">
+    <video id="video-remote" autoplay playsinline></video>
+  </div>
+  
+  <audio id="roomaudio" autoplay></audio>
+</body>
+
+</html>
